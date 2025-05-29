@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #05fe85;
+        }
+
+        .container {
+            background: rgb(1, 64, 255);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(168, 6, 6, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #d20996;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #00ff1a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Currency Converter</h2>
+    <input type="number" id="amount" placeholder="Injiza amafaranga" required>
+    <select id="currencyFrom">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="RWF">RWF</option>
+        <option value="GBP">GBP</option>
+    </select>
+    <select id="currencyTo">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="RWF">RWF</option>
+        <option value="GBP">GBP</option>
+    </select>
+    <button onclick="convertCurrency()">Hindura Amafaranga</button>
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    const exchangeRates = {
+        "USD": { "EUR": 0.85, "RWF": 1100, "GBP": 0.75, "USD": 1 },
+        "EUR": { "USD": 1.18, "RWF": 1290, "GBP": 0.88, "EUR": 1 },
+        "RWF": { "USD": 0.00091, "EUR": 0.00078, "GBP": 0.00069, "RWF": 1 },
+        "GBP": { "USD": 1.33, "EUR": 1.14, "RWF": 1440, "GBP": 1 }
+    };
+
+    function convertCurrency() {
+        const amount = parseFloat(document.getElementById("amount").value);
+        const currencyFrom = document.getElementById("currencyFrom").value;
+        const currencyTo = document.getElementById("currencyTo").value;
+        const resultDiv = document.getElementById("result");
+
+        if (amount > 0) {
+            const rate = exchangeRates[currencyFrom][currencyTo];
+            const convertedAmount = (amount * rate).toFixed(2);
+            resultDiv.innerHTML = `${amount} ${currencyFrom} = ${convertedAmount} ${currencyTo}`;
+        } else {
+            resultDiv.innerHTML = "Injiza amafaranga nyayo.";
+        }
+    }
+</script>
+
+</body>
+</html>

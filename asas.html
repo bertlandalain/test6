@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html></html>
+<head>
+   
+    <title>Login and Sign Up</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #eee;
+            background-image: url('ee.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .box {
+            background: linear-gradient(to right, rgba(255, 0, 150, 0.8), rgba(0, 0, 255, 0.8));
+            padding: 20px;
+            width: 320px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .switch, .forgot-password {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .forgot-password {
+    text-align: right;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.forgot-password a {
+    color: green; 
+}
+
+
+#signup {
+    display: none;
+    color: green; 
+}
+
+    </style>
+</head>
+<body>
+
+<div class="box">
+
+    <form id="login" onsubmit="return handleLogin(event)">
+        <h2>Login</h2>
+        <input type="text" placeholder="Email or Phone" id="loginContact" required>
+        <input type="password" placeholder="Password" id="loginPassword" required>
+        <div class="forgot-password">
+            <a href="pass.html">Forgot Password?</a>
+        </div>
+        <button type="submit">Login</button>
+        <div class="switch">
+            Don't have an account? <a href="#" onclick="showSignup()">Sign Up</a>
+        </div>
+    </form>
+
+
+    <form id="signup" onsubmit="return handleSignup(event)">
+        <h2>Sign Up</h2>
+        <input type="text" placeholder="First Name" id="firstName" required>
+        <input type="text" placeholder="Last Name" id="lastName" required>
+        <input type="email" placeholder="Email" id="signupEmail" required>
+        <input type="password" placeholder="Password" id="signupPassword" required>
+        <input type="password" placeholder="Confirm Password" id="confirmPassword" required>
+        <button type="submit">Sign Up</button>
+        <div class="switch">
+            Already have an account? <a href="#" onclick="showLogin()">Log In</a>
+        </div>
+    </form>
+</div>
+
+<script>
+    function showSignup() {
+        let loginForm = document.getElementById('login');
+        let signupForm = document.getElementById('signup');
+        loginForm.style.display = 'none';
+        signupForm.style.display = 'block';
+    }
+
+    function showLogin() {
+        let loginForm = document.getElementById('login');
+        let signupForm = document.getElementById('signup');
+        signupForm.style.display = 'none';
+        loginForm.style.display = 'block';
+    }
+
+    function handleLogin(event) {
+        event.preventDefault(); 
+        let contact = document.getElementById("loginContact").value;
+        let password = document.getElementById("loginPassword").value;
+
+        if (contact && password) {
+            window.location.href = "WEBSITE.html";
+        } else {
+            alert("Please fill in all required fields.");
+        }
+    }
+
+    function handleSignup(event) {
+        event.preventDefault();
+        let pass = document.getElementById("signupPassword").value;
+        let confirm = document.getElementById("confirmPassword").value;
+
+        if (pass !== confirm) {
+            alert("Passwords do not match.");
+            return false;
+        }
+
+        window.location.href = "WEBSITE.html";
+    }
+</script>
+
+
+</body>
+</html>

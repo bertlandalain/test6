@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1ab106; 
+            background-image: url('tt.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            background: rgba(137, 0, 110, 0.8); 
+
+            background-size: cover;
+            background-position: center;
+            
+
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(246, 237, 237, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 3.5px solid #d20996;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #00ff1a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+      <mark>  <h2>Currency Converter</h2></mark>
+        <input type="number" id="amount" placeholder="Enter amount" required>
+        <select id="currencyFrom">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="RWF">RWF</option>
+            <option value="GBP">GBP</option>
+        </select>
+        <select id="currencyTo">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="RWF">RWF</option>
+            <option value="GBP">GBP</option>
+        </select>
+        <button onclick="convertCurrency()">Convert</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        let rates = {
+            USD: { EUR: 0.85, RWF: 1100, GBP: 0.75 },
+            EUR: { USD: 1.18, RWF: 1290, GBP: 0.88 },
+            RWF: { USD: 0.00091, EUR: 0.00078, GBP: 0.00069 },
+            GBP: { USD: 1.33, EUR: 1.14, RWF: 1440 }
+        };
+
+        function convertCurrency() {
+            let amount = document.getElementById("amount").value;
+            let from = document.getElementById("currencyFrom").value;
+            let to = document.getElementById("currencyTo").value;
+
+            let result = amount * (rates[from][to] || 1);
+            document.getElementById("result").innerText = `${amount} ${from} = ${result.toFixed(2)} ${to}`;
+        }
+    </script>
+
+</body>
+</html>

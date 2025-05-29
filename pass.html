@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>Forgot Password</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #01823b;
+      background-image: url('oo.jpg');
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .container {
+        background: linear-gradient(to right, #d60787, #0fb403);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 320px;
+      text-align: center;
+    }
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .message {
+      margin-top: 20px;
+      color: green;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Forgot- Password?</h2>
+  <p>"Enter your email, and we will send you a link to reset your password.</p>
+  <input type="email" id="email" placeholder="Enter Your Email" required>
+  <button onclick="showMessage()">Send Link</button>
+
+  <div class="back-to-login">
+    <a href="asas.html">Back to Login</a>
+
+  <div class="message" id="confirmation">We have sent a link to your email !</div>
+</div>
+
+<script>
+  function showMessage() {
+    var emailInput = document.getElementById("email");
+    var message = document.getElementById("confirmation");
+
+    if (emailInput.value !== "") {
+      message.style.display = "block";
+    } else {
+      alert("Kindly enter your email before submitting.");
+    }
+  }
+</script>
+
+</body>
+</html>

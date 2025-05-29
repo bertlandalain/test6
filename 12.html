@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <title>Comment Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #111, #222);
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .comment-box {
+            max-width: 600px;
+            margin: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid red;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .comment-box h2 {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .comment-box label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .comment-box input,
+        .comment-box textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: #000;
+            border: none;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .comment-box button {
+            background-color: #c62828;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .comment-box button:hover {
+            background-color: #a91b1b;
+        }
+
+        .comment-list {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .comment-item {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="comment-box">
+    <h2>BE THE FIRST TO COMMENT</h2>
+    <label for="name">Display Name</label>
+    <input type="text" id="name" placeholder="Enter display name">
+    
+    <label for="comment">Comment</label>
+    <textarea id="comment" rows="4" placeholder="Enter your comment message"></textarea>
+    
+    <button onclick="postComment()">SUBMIT</button>
+</div>
+
+<div class="comment-list" id="commentList">
+    <p>0 Comments</p>
+</div>
+
+<script>
+    function postComment() {
+        let name = document.getElementById('name').value;
+        let comment = document.getElementById('comment').value;
+
+        let newDiv = document.createElement('div');
+        newDiv.innerHTML = "<b>" + name + "</b><br>" + comment + "<hr>";
+
+        document.getElementById('commentList').appendChild(newDiv);
+
+        document.getElementById('name').value = "";
+        document.getElementById('comment').value = "";
+    }
+</script>
+
+
+</body>
+</html>

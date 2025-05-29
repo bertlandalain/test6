@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>Mubuga Exchange Dashboard</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #e91e63;
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      justify-content: flex-start;
+      padding-top: 50px;
+    }
+
+    .dashboard-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .dashboard-content {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 900px;
+      margin-top: 20px;
+    }
+
+    .navigation {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .navigation button {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin: 0 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .data-section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    input, select {
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      width: 100%;
+      margin-top: 4px;
+      margin-bottom: 12px;
+    }
+
+    button[type="button"] {
+      background-color: white;
+      color: #e91e63;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    h2 {
+      color: white;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    #live-time {
+      text-align: center;
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-header">
+    <h1>Welcome to Mubuga Exchange Dashboard</h1>
+  </div>
+
+  <div class="dashboard-content">
+    <nav class="navigation">
+      <button onclick="showSection('overview')">Overview</button>
+      <button onclick="showSection('transactions')">Transactions</button>
+      <button onclick="showSection('settings')"> Other Settings</button>
+    </nav>
+
+    <div id="overview" class="data-section">
+      <h2>Overview</h2>
+      <p>This is the overview section of your dashboard. You can see key metrics and summaries here.</p>
+      <ul>
+        <li>Total Balance: <span id="total-balance">Loading...</span></li>
+        <li>Recent Activity: <span id="recent-activity">Checking...</span></li>
+      </ul>
+    </div>
+
+    <div id="transactions" class="data-section" style="display: none;">
+      <h2>Transactions</h2>
+      <p>Here you can view your recent transaction history.</p>
+      <ul id="transaction-list">
+        <li>Loading transactions...</li>
+      </ul>
+    </div>
+
+    <div id="settings" class="data-section" style="display: none;">
+      <h2>Other settings</h2>
+      <form id="settings-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your name" />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" />
+
+        <label for="password">New Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter new password" />
+
+        <label for="notifications">Notifications:</label>
+        <select id="notifications" name="notifications">
+          <option value="enabled">Enabled</option>
+          <option value="disabled">Disabled</option>
+        </select>
+
+        <label for="language">Language:</label>
+        <select id="language" name="language">
+          <option value="en">English</option>
+          <option value="rw">Kinyarwanda</option>
+          <option value="fr">Français</option>
+        </select>
+
+        <button type="button" onclick="saveSettings()">Save Settings</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="live-time"></div>
+
+  <script>
+    function showSection(sectionId) {
+      let sections = ['overview', 'transactions', 'settings'];
+      for (let i = 0; i < sections.length; i++) {
+        let id = sections[i];
+        let section = document.getElementById(id);
+        section.style.display = (id === sectionId) ? 'block' : 'none';
+      }
+    }
+
+    function updateLiveTime() {
+      let now = new Date();
+      let timeString = now.toLocaleTimeString();
+      document.getElementById('live-time').textContent = `Current Time: ${timeString}`;
+    }
+
+    function saveSettings() {
+      let username = document.getElementById("username").value;
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+      let notifications = document.getElementById("notifications").value;
+      let language = document.getElementById("language").value;
+
+      alert("Settings saved!\n\n" +
+        "Username: " + username + "\n" +
+        "Email: " + email + "\n" +
+        "Password: " + (password ? "******" : "Not changed") + "\n" +
+        "Notifications: " + notifications + "\n" +
+        "Language: " + language);
+    }
+
+    setTimeout(() => {
+      let balance = document.getElementById('total-balance');
+      let activity = document.getElementById('recent-activity');
+      balance.textContent = "$1,250.75";
+      activity.textContent = "Last login: 5 minutes ago";
+    }, 1500);
+
+    setTimeout(() => {
+      let transactions = [
+        "Received $50 from UserA",
+        "Sent $25 to ServiceB",
+        "Withdrawal of $100"
+      ];
+      let transactionList = document.getElementById('transaction-list');
+      transactionList.innerHTML = transactions.map(function(tx) {
+        return '<li>' + tx + '</li>';
+      }).join('');
+    }, 2500);
+
+    setInterval(updateLiveTime, 1000);
+    updateLiveTime();
+  </script>
+</body>
+</html>

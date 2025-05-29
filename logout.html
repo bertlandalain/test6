@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>logout</title>
+    <style>
+ 
+    body {
+        background-image: url('ee.jpg'); 
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: Arial, sans-serif;
+    }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+     
+        .logout-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="WEBSITE.html">Home</a>
+        <a href="image.html">Profile</a>
+        <a href="set.html">Settings</a>
+        <button class="logout-button" onclick="logout()">Log Out</button>
+    </div>
+
+    <h2> My Website</h2>
+    <p><b>Customize your settings and navigate easily.</b></p>
+
+    <script>
+        function logout() {
+            alert("You have logged out!");
+            window.location.href = "WEBSITE.html";
+        }
+    </script>
+
+</body>
+</html>

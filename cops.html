@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIKUU Inspired Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #ff6600;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        header .search-bar {
+            display: flex;
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+
+        header .search-bar input {
+            padding: 8px;
+            width: 100%;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        header .search-bar button {
+            background-color: #ff8800;
+            color: white;
+            border: none;
+            padding: 8px 10px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        header .nav {
+            display: flex;
+            align-items: center;
+        }
+
+        header .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        header .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .category-nav {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .category-nav ul {
+            list-style: none;
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category-nav ul li {
+            margin-right: 20px;
+        }
+
+        .category-nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .category-nav ul li a:hover {
+            color: #ff6600;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .banner {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .product-card h3 {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #ff6600;
+            margin-top: 5px;
+        }
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#">KIKUU</a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+            <button>Search</button>
+        </div>
+        <div class="nav">
+            <a href="#">Login</a>
+            <a href="#">Register</a>
+            <a href="#">Cart</a>
+        </div>
+    </header>
+
+    <nav class="category-nav">
+        <ul>
+            <li><a href="#">Clothing</a></li>
+            <li><a href="#">Shoes</a></li>
+            <li><a href="#">Bags</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Beauty</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Electronics</a></li>
+             <li><a href="#">Phones & Accessories</a></li>
+            <li><a href="#">Laptops & Office</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="banner">
+            <h2>New Arrivals</h2>
+            <p>Shop Now</p>
+        </div>
+
+        <div class="product-list">
+            <div class="product-card">
+                <img src="product1.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>$19.99</p>
+            </div>
+            <div class="product-card">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>$24.99</p>
+            </div>
+            <div class="product-card">
+                <img src="product3.jpg" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>$15.99</p>
+            </div>
+             <div class="product-card">
+                <img src="product1.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>$19.99</p>
+            </div>
+            <div class="product-card">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>$24.99</p>
+            </div>
+            <div class="product-card">
+                <img src="product3.jpg" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>$15.99</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>© 2025 KIKUU Inspired Website</p>
+    </footer>
+
+    <script>
+       //You can add javascript for interactive features.
+    </script>
+</body>
+</html>
